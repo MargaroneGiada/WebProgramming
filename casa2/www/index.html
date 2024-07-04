@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap'>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+  <!-- LOGIN -->
+  <div class="wrapper" id="LogContainer">
+    <div class="login_box">
+      <div class="login-header">
+        <span>Login</span>
+      </div>
+
+      <div class="input_box">
+        <input type="text" id="userLogin" class="input-field" required>
+        <label for="user" class="label">Username</label>
+        <i class="bx bx-user icon"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="password" id="pass" class="input-field" required>
+        <label for="pass" class="label">Password</label>
+        <i class="bx bx-lock-alt icon"></i>
+      </div>
+
+
+      <div class="input_box">
+        <input type="submit" class="input-submit" value="Login" id="btnLogin">
+      </div>
+
+      <div class="register">
+        <span>Don't have an account? <button class="input-submit" id="btnNoAccount">Register</span>
+      </div>
+    </div>
+  </div>
+  <!-- FINE LOGIN -->
+  <!-- REGISTER -->
+  <div class="wrapper hidden" id="RegContainer">
+    <div class="login_box">
+      <div class="login-header">
+        <span>Sign In</span>
+      </div>
+
+      <div class="input_box">
+        <input type="text" id="newuserLogin" class="input-field" required>
+        <label for="user" class="label">Username</label>
+        <i class="bx bx-user icon"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="password" id="newpass" class="input-field" required>
+        <label for="pass" class="label">Password</label>
+        <i class="bx bx-lock-alt icon"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="submit" class="input-submit" value="Sign In" id="btnRegister">
+      </div>
+
+      <div class="register">
+        <span>Already have an account? <button class="input-submit" id="btnAlreadyAccount">Log In</button></span>
+      </div>
+    </div>
+  </div>
+  <!-- FINE REGISTER -->
+   <!-- DASHBOARD -->
+  <div class="wrapper hidden" id="Dashboard">
+    <div class="box">
+      <div class="dashboardBar">
+        Dashboard
+        <i class="bx bx-log-out icon"></i>
+        <i class="bx bx-user-plus icon"></i>
+      </div>
+      <div class="sensorContainer" id="sensorContainer">
+        <!-- <div class="sensorBox">
+          <div class="sensorImage">
+
+          </div>
+          <div class = "sensorInfo">
+            <span id="sensorName"></span>
+            <span id="sensorType"></span>
+            <span id="sensorValue"></span>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+</body>
+
+<script src="assets/js/main.js"></script>
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+</html>

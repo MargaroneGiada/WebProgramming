@@ -1,0 +1,18 @@
+{
+    "users" : [
+        {
+            "username" : "giada",
+            "password" : "admin",
+            "sensors" : [
+                {
+                    "name" : "Termometro",
+                    "type" : "Temperatura",
+                    "updateTime" : "1"
+                }
+            ]
+        }, 
+        {
+
+        }
+    ]
+}
