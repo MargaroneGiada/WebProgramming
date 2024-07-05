@@ -4,6 +4,8 @@ const btnAlreadyAccount = document.querySelector("#btnAlreadyAccount");
 const btnRegister = document.querySelector("#btnRegister");
 const userLogin = document.querySelector("#userLogin");
 const passLogin = document.querySelector("#pass");
+const userSignin = document.querySelector("#newuserLogin");
+const passSignin = document.querySelector("#newpass");
 const LoginPage = document.querySelector("#LogContainer");
 const RegisterPage = document.querySelector("#RegContainer");
 const Dashboard = document.querySelector("#Dashboard");
@@ -18,9 +20,9 @@ let displaySensors = (user) => {
 
           </div>
           <div class = "sensorInfo">
-            <span id="sensorName">${sens.name}</span>
-            <span id="sensorType">${sens.type}</span>
-            <span id="sensorValue">${sens.updateTime}</span>
+            <span id="sensorName">Nome: ${sens.name}</span>
+            <span id="sensorType">Tipo: ${sens.type}</span>
+            <span id="sensorTime">Tempo di Aggiornamento: ${sens.updateTime}</span>
           </div>`;
         let sensorBox = document.createElement("div");
         sensorBox.classList = "sensorBox"
@@ -45,11 +47,9 @@ btnLogin.addEventListener("click", () => {
             }
             else {
                 alert("User not found or password incorrect");
-                socket.on("disconnect", ()=>{});
             }
         } else {
             alert("User not found or password incorrect");
-                socket.on("disconnect", ()=>{});
         }
     });
 });
@@ -64,3 +64,14 @@ btnAlreadyAccount.addEventListener("click", () => {
     LoginPage.classList = "wrapper";
     RegisterPage.classList = "wrapper hidden";
 });
+
+btnRegister.addEventListener("click", () => {
+
+    socket = io();
+    
+    socket.emit("newUser", (userSignin, passSignin));
+
+    socket.on("usernameUsed", () => {
+        alert("Username already used");
+    })
+})

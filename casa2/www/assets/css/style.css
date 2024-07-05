@@ -264,7 +264,7 @@ a:hover {
 .sensorContainer > .sensorBox > .sensorInfo{
   position:absolute;
   right: 0;
-  width: 50%;
+  width: 60%;
   height: 100%;
   color: var(--second-color);
 }
@@ -272,7 +272,7 @@ a:hover {
 .sensorContainer > .sensorBox > .sensorInfo > span{
   position:relative;
   display: block;
-  font-size: 25px;
+  font-size: 16px;
 }
 
 .dashboardBar > i {

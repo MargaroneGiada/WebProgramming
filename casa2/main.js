@@ -11,6 +11,10 @@ const readJSON = () => {
     return JSON.parse(data);
 };
 
+const writeJSON = (data) => {
+    fs.writeFileSync("./database/users.json", JSON.stringify(data));
+};
+
 serverExpress.get("/api/user/:user", (req, resp) =>{
     let data = readJSON();
     const user = data.users.find(user => user.username === req.params.user);
@@ -21,12 +25,25 @@ serverExpress.get("/api/user/:user", (req, resp) =>{
     }
 });
 
-
-
-
 serverSocketIO.on("connection", (socketClient)=>{
     socketClient.on("disconnect", () => {
         console.log("CIAONE");
+    });
+
+    socketClient.on("newUser", (username, pass) => {
+        let data = readJSON();
+        const user = data.users.find(user => user.username === username);
+        if(!user){
+            const user = {
+                username : username,
+                password : pass,
+                sensors : []
+            }
+            data.users.push(user);
+            writeJSON(data);
+        }else{
+            socketClient.emit("usernameUsed", ()=>{});
+        }
     });
 });
 
